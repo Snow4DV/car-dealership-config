@@ -13,12 +13,12 @@ spring:
 #      fail-fast: true
     gateway:
       routes:
-        - id: inventory-service
-          uri: http://inventory-service.default.svc.cluster.local:8080
+        - id: storage-service
+          uri: http://storage-service.default.svc.cluster.local:8080
           predicates:
-            - Path=/inventory-service/**
+            - Path=/storage-service/**
           filters:
-            - RewritePath=/inventory-service/(?<path>.*), /${path}
+            - RewritePath=/storage-service/(?<path>.*), /${path}
         - id: auth-service
           uri: http://auth-service.default.svc.cluster.local:8080
           predicates:
